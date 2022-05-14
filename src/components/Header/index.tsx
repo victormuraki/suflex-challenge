@@ -10,7 +10,6 @@ export function HeaderApp() {
         <>
             <Header>
                 <Content>
-                    {/* <h1>Rick and Morty Library</h1> */}
                     <img src={logo} alt="" />
                     <input type="text" placeholder="Buscar personagem" />
 

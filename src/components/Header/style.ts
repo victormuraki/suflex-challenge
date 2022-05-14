@@ -78,5 +78,10 @@ export const FilteredBox = styled.div`
         height: 1.6rem;
         max-width: 100%;
     }
+
+    span {
+        font-size: 1rem;
+        color: var(--text-title)
+    }
     
 `
