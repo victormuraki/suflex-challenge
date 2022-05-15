@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+
+
 export const Header = styled.div`
     background: var(--white);
     max-width: 100%;
@@ -45,6 +47,11 @@ export const Content = styled.div`
     h2 {
         margin: 0.5rem 0;
     }
+
+    .active {
+        background: var(--white);
+    }
+
 `
 
 export const FilteredContainer = styled.div`
@@ -61,7 +68,7 @@ export const FilteredContainer = styled.div`
 
 `
 
-export const FilteredBox = styled.div`
+export const FilteredBox = styled.button`
 
     display: flex;
     align-items: center;
@@ -82,6 +89,5 @@ export const FilteredBox = styled.div`
     span {
         font-size: 1rem;
         color: var(--text-title)
-    }
-    
+    }    
 `

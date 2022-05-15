@@ -10,6 +10,8 @@ export function Content() {
     const [dataPagination, setDataPagination] = useState([])
     const [listPerson, setListPerson] = useState([])
     const {search} = useContext(Context)
+    const {isFiltered} = useContext(Context)
+    const {favorites, setFavorites} = useContext(Context)
 
     useEffect(() => {
         api.get(`character/?page=${pagination}`)
@@ -17,6 +19,13 @@ export function Content() {
                 setListPerson(response.data.results)
             })
     }, [pagination])
+
+    useEffect(() => {
+        api.get(`character/?species=${isFiltered}&page=${pagination}`)
+            .then(response => {
+                setListPerson(response.data.results)
+            })
+    }, [isFiltered, pagination])
 
     useEffect(() => {
         api.get(`character/?name=${search}`)
@@ -40,7 +49,10 @@ export function Content() {
         pagination >= dataPagination.pages ? setPagination(pagination) : setPagination(pagination + 1)
     }
 
-    function handleFavorites() {
+    function handleFavorites(favoritePerson) {
+        const newFavorite = [...favorites, favoritePerson]
+        setFavorites(newFavorite)
+        console.log(favorites)
     }
 
     return (
@@ -52,9 +64,10 @@ export function Content() {
                             <img src={person.image} alt="" />
                             <span>{person.name.length > 16 ? `${person.name.substring(0, 16)}...` : person.name}</span>
                             <button>+ Informações</button>
-                            <button onClick={handleFavorites}>Favoritar</button>
+                            <button onClick={ () => handleFavorites(person)}>Favoritar</button>
                         </div>
                     ))}
+                    {console.log(favorites)}
                 </ContainerContent>
             </Container>
 

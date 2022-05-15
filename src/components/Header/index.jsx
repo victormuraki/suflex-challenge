@@ -9,7 +9,23 @@ import { Context } from "../Context/Context"
 
 export function HeaderApp() {
 
-    const {search, setSearch} = useContext(Context)
+    const { search, setSearch } = useContext(Context)
+    const { isFiltered, setIsFiltered } = useContext(Context)
+
+    function handleClearFilter() {
+        setIsFiltered('')
+    }
+    function handleHumans() {
+        setIsFiltered('human')
+    }
+
+    function handleAliens() {
+        setIsFiltered('alien')
+    }
+
+    function handleFavorites() {
+        setIsFiltered('favorites')
+    }
 
     return (
         <>
@@ -17,22 +33,33 @@ export function HeaderApp() {
                 <Content>
                     <img src={logo} alt="" />
 
-                    <input placeholder="Buscar personagem" onChange={event => setSearch(event.target.value)}/>
+                    <input placeholder="Buscar personagem" onChange={event => setSearch(event.target.value)} />
                     <FilteredContainer>
 
-                        <FilteredBox>
+                        <FilteredBox
+                            onClick={isFiltered === 'human' ? handleClearFilter : handleHumans}
+                            className={isFiltered === "human" ? 'active' : ''}
+                        >
                             <span>Humanos</span>
                             <img src={human} alt="human-icon" />
                         </FilteredBox>
-                        <FilteredBox>
+
+                        <FilteredBox
+                            onClick={isFiltered === 'alien' ? handleClearFilter : handleAliens}
+                            className={isFiltered === "alien" ? 'active' : ''}
+                        >
                             <span>Aliens</span>
                             <img src={ovni} alt="human-icon" />
                         </FilteredBox>
-                        <FilteredBox>
+
+                        <FilteredBox
+                            onClick={isFiltered === 'favorites' ? handleClearFilter : handleFavorites}
+                            className={isFiltered === "favorites" ? 'active' : ''}
+                        >
                             <span>Favoritos</span>
                             <img src={favorite} alt="human-icon" />
                         </FilteredBox>
-                        
+
                     </FilteredContainer>
                 </Content>
             </Header>
