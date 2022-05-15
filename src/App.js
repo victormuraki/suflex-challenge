@@ -3,6 +3,7 @@ import { HeaderApp } from './components/Header';
 import { Content } from './components/Content';
 
 export function App() {
+
   return (
     <>
       <HeaderApp />
