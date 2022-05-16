@@ -9,22 +9,33 @@ import { Context } from "../Context/Context"
 
 export function HeaderApp() {
 
-    const { search, setSearch } = useContext(Context)
-    const { isFiltered, setIsFiltered } = useContext(Context)
+    const { search, setSearch } = useContext(Context);
+    const { isFiltered, setIsFiltered } = useContext(Context);
+    const { listRender, setListRender } = useContext(Context);
+    const { setPagination } = useContext(Context);
+
 
     function handleClearFilter() {
-        setIsFiltered('')
+        setIsFiltered('');
+        setListRender(true);
+        setSearch('');
     }
     function handleHumans() {
-        setIsFiltered('human')
+        setIsFiltered('human');
+        setListRender(true);
+        setPagination(1);
     }
 
     function handleAliens() {
-        setIsFiltered('alien')
+        setIsFiltered('alien');
+        setListRender(true);
+        setPagination(1);
     }
 
     function handleFavorites() {
-        setIsFiltered('favorites')
+        setIsFiltered('favorites');
+        setListRender(!listRender);
+        setPagination(1);
     }
 
     return (

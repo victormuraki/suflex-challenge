@@ -74,5 +74,18 @@ export const Pagination = styled.div`
             font-weight: 600;
         }
     }
+`
+
+export const FavoriteBox = styled.button`
+    position: relative;
+
+    img {
+        width: 100%;
+        max-width: 5rem;
+        position: relative;
+        right: 1.5rem;
+        top: 1.5rem;
+
+    }
 
 `
