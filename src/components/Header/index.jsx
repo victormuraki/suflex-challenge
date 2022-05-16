@@ -21,13 +21,14 @@ export function HeaderApp() {
         setSearch('');
     }
     function handleHumans() {
-        setIsFiltered('human');
+        isFiltered === 'alien' ? setIsFiltered('') : setIsFiltered('human');
         setListRender(true);
         setPagination(1);
     }
 
     function handleAliens() {
         setIsFiltered('alien');
+        isFiltered === 'human' ? setIsFiltered('') : setIsFiltered('alien');
         setListRender(true);
         setPagination(1);
     }

@@ -3,9 +3,6 @@ import { api } from "../services/api";
 import { useEffect, useState, useContext } from "react";
 import { Context } from "../Context/Context";
 
-import favoriteIcon from "../../assets/favorite.svg"
-
-
 export function Content() {
 
     const [dataPagination, setDataPagination] = useState([]);
