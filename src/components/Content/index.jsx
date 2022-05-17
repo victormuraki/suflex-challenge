@@ -1,15 +1,16 @@
 import { useEffect, useState, useContext } from "react";
 import { Context } from "../Context/Context";
+import { Pagination } from "../Pagination";
 import { api } from "../services/api";
 
-import { ContainerContent, Container, Pagination } from "./style";
+import { ContainerContent, Container } from "./style";
 
 export function Content() {
 
-    const [dataPagination, setDataPagination] = useState([]);
     const [listPerson, setListPerson] = useState([]);
-
-    const { pagination, setPagination } = useContext(Context);
+    
+    const { setDataPagination } = useContext(Context);
+    const { pagination } = useContext(Context);
     const { search } = useContext(Context);
     const { isFiltered } = useContext(Context);
     const { favorites, setFavorites } = useContext(Context);
@@ -38,14 +39,6 @@ export function Content() {
                 setListPerson(response.data.results);
             })
     }, [search])
-
-    function handlePrevPage() {
-        pagination === 1 ? setPagination(pagination) : setPagination(pagination - 1);
-    }
-
-    function handleNextPage() {
-        pagination >= dataPagination.pages ? setPagination(pagination) : setPagination(pagination + 1);
-    }
 
     function handleFavorites(favoritePerson) {
         const newFavorite = [...favorites, favoritePerson];
@@ -77,7 +70,7 @@ export function Content() {
                     {listRender ?
                         listPerson?.map(person => (
                             <div key={person.id}>
-                                <img src={person.image} alt="" />
+                                {/* <img src={person.image} alt="" /> */}
                                 <span>{person.name.length > 16 ? `${person.name.substring(0, 16)}...` : person.name}</span>
                                 <button onClick={() => handleModalInfo(person)}>+ Informações</button>
                                 <button onClick={() => handleFavorites(person)}>Favoritar</button>
@@ -86,7 +79,7 @@ export function Content() {
                         :
                         favorites?.map(person => (
                             <div key={person.id}>
-                                <img src={person.image} alt="" />
+                                {/* <img src={person.image} alt="" /> */}
                                 <span>{person.name.length > 16 ? `${person.name.substring(0, 16)}...` : person.name}</span>
                                 <button onClick={() => handleModalInfo(person)}>+ Informações</button>
                                 <button onClick={() => handleRemoveFavorites(person)}>remover favorito</button>
@@ -96,10 +89,7 @@ export function Content() {
                 </ContainerContent>
             </Container>
 
-            <Pagination>
-                <button onClick={handlePrevPage}>Anterior</button>
-                <button onClick={handleNextPage}>Próximo</button>
-            </Pagination>
+            <Pagination />
         </>
     )
 }
