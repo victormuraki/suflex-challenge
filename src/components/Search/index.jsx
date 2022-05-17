@@ -1,13 +1,16 @@
 import { useContext } from "react"
 import { Context } from "../Context/Context"
+import { SearchContainer } from "./style";
 
 export function Search() {
 
-    const { search, setSearch } = useContext(Context);
+    const { setSearch } = useContext(Context);
 
     return (
         <>
-            <input placeholder="Buscar personagem" onChange={event => setSearch(event.target.value)} />
+            <SearchContainer>
+                <input placeholder="Buscar personagem" onChange={event => setSearch(event.target.value)} />
+            </SearchContainer>
         </>
     )
 }
