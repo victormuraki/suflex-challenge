@@ -14,33 +14,41 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
+<h1 align="center">:file_cabinet: Exemplo de README.md</h1>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## :memo: Descrição
+O Projeto tem como objetivo demonstrar uma biblioteca do desenho / seriado Rick and Morty em uma SPA.
 
-### `yarn build`
+## :books: Funcionalidades
+* <b>Pagina principal 1</b>: Listagem de todos os personagens consumindo a api de: https://rickandmortyapi.com/
+* <b>Filtros por categorias 2</b>: Filtra por humanos, e ou aliens, quando selecionar as duas categorias, o filtro retorna para geral.
+* <b>Buscar por nome 3</b>: Busca por personagens por nome.
+* <b>Adicionar aos Favoritos 4</b>: Adicione seus personagens favoritos em uma lista a parte, o mesmo não usa banco de dados, apenas um estado para armazenar temporariamente
+* <b>Remover Favoritos 4.1</b>: Remove o personagem da lista de favoritos.
+* <b> + Informações 5</b>: Exibe detalhes sobre o personagem selecionado.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## :wrench: Tecnologias utilizadas
+* Yarn;
+* React JS (useState, useEffect, useContext, React Modal)
+* Styled Components;
+* CSS;
+* HTML
+* Javascript;
+* Git;
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## :rocket: Rodando o projeto
+Para rodar o repositório é necessário clonar o mesmo, dar o seguinte comando para iniciar o projeto:
+```
+yarn install
+yarn start
+```
 
-### `yarn eject`
+## :soon: Implementação futura
+* Testes automatizados
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## :handshake: Colaboradores
+<b> Victor Muraki </b>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## :dart: Status do projeto
+Fase de testes
