@@ -1,7 +1,8 @@
-import { ContainerContent, Container, Pagination, FavoriteBox } from "./style";
-import { api } from "../services/api";
 import { useEffect, useState, useContext } from "react";
 import { Context } from "../Context/Context";
+import { api } from "../services/api";
+
+import { ContainerContent, Container, Pagination } from "./style";
 
 export function Content() {
 
@@ -13,7 +14,7 @@ export function Content() {
     const { isFiltered } = useContext(Context);
     const { favorites, setFavorites } = useContext(Context);
     const { listRender } = useContext(Context);
-    const { modalPerson, setModalPerson } = useContext(Context);
+    const { setModalPerson } = useContext(Context);
     const { setModalIsOpen } = useContext(Context);
 
     useEffect(() => {
@@ -48,7 +49,7 @@ export function Content() {
 
     function handleFavorites(favoritePerson) {
         const newFavorite = [...favorites, favoritePerson];
-        const nonDuplicates = [... new Set(newFavorite)];
+        const nonDuplicates = [...new Set(newFavorite)];
         setFavorites(nonDuplicates);
 
         alert(`${favoritePerson.name} foi adicionado aos favoritos`);
@@ -67,7 +68,6 @@ export function Content() {
     function handleModalInfo(person) {
         setModalPerson(person);
         setModalIsOpen(true);
-        console.log(modalPerson)
     }
 
     return (
@@ -76,7 +76,7 @@ export function Content() {
                 <ContainerContent>
                     {listRender ?
                         listPerson?.map(person => (
-                            <div key={person.key}>
+                            <div key={person.id}>
                                 <img src={person.image} alt="" />
                                 <span>{person.name.length > 16 ? `${person.name.substring(0, 16)}...` : person.name}</span>
                                 <button onClick={() => handleModalInfo(person)}>+ Informações</button>
@@ -85,7 +85,7 @@ export function Content() {
                         ))
                         :
                         favorites?.map(person => (
-                            <div key={person.key}>
+                            <div key={person.id}>
                                 <img src={person.image} alt="" />
                                 <span>{person.name.length > 16 ? `${person.name.substring(0, 16)}...` : person.name}</span>
                                 <button onClick={() => handleModalInfo(person)}>+ Informações</button>

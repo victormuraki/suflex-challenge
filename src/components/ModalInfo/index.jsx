@@ -1,7 +1,9 @@
-import { useContext, useState } from "react"
-import ReactModal from "react-modal"
+import closeImg from "../../assets/close.svg";
+
+import ReactModal from "react-modal";
+
+import { useContext } from "react";
 import { Container, TextInformation } from "./styles";
-import closeImg from "../../assets/close.svg"
 import { Context } from "../Context/Context";
 
 export function Modal() {

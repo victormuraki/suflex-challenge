@@ -1,11 +1,11 @@
-import human from "../../assets/human.svg"
-import ovni from "../../assets/ovni.svg"
-import favorite from "../../assets/favorite.svg"
+import human from "../../assets/human.svg";
+import ovni from "../../assets/ovni.svg";
+import favorite from "../../assets/favorite.svg";
 
-import { useContext } from "react"
-import { Context } from "../Context/Context"
+import { useContext } from "react";
+import { Context } from "../Context/Context";
 
-import { FilteredBox, FilteredContainer } from "./style"
+import { FilteredBox, FilteredContainer } from "./style";
 
 export function FilterBox() {
     const { isFiltered, setIsFiltered } = useContext(Context);

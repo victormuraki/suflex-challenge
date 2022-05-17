@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { Context } from "../Context/Context"
+
 import { SearchContainer } from "./style";
 
 export function Search() {

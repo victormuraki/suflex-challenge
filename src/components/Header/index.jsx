@@ -1,9 +1,8 @@
-import logo from "../../assets/logorickandmorty.png"
-import { FilterBox } from "../FilterBox"
+import logo from "../../assets/logorickandmorty.png";
 
-import { Search } from "../Search"
-
-import { Header, Content, FilteredBox, FilteredContainer } from "./style"
+import { FilterBox } from "../FilterBox";
+import { Search } from "../Search";
+import { Header, Content } from "./style";
 
 export function HeaderApp() {
 
