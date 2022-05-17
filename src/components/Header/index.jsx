@@ -5,11 +5,11 @@ import favorite from "../../assets/favorite.svg"
 import logo from "../../assets/logorickandmorty.png"
 import { useContext } from "react"
 import { Context } from "../Context/Context"
+import { Search } from "../Search"
 
 
 export function HeaderApp() {
-
-    const { search, setSearch } = useContext(Context);
+    
     const { isFiltered, setIsFiltered } = useContext(Context);
     const { listRender, setListRender } = useContext(Context);
     const { setPagination } = useContext(Context);
@@ -18,7 +18,6 @@ export function HeaderApp() {
     function handleClearFilter() {
         setIsFiltered('');
         setListRender(true);
-        setSearch('');
     }
     function handleHumans() {
         isFiltered === 'alien' ? setIsFiltered('') : setIsFiltered('human');
@@ -45,7 +44,8 @@ export function HeaderApp() {
                 <Content>
                     <img src={logo} alt="" />
 
-                    <input placeholder="Buscar personagem" onChange={event => setSearch(event.target.value)} />
+                    <Search/>
+
                     <FilteredContainer>
 
                         <FilteredBox
