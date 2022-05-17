@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { Context } from "../Context/Context";
 import { Pagination } from "../Pagination";
 import { api } from "../services/api";
@@ -7,23 +7,8 @@ import { ContainerContent, Container } from "./style";
 
 export function Content() {
 
-    const [listPerson, setListPerson] = useState([]);
-    
-    const { setDataPagination } = useContext(Context);
-    const { pagination } = useContext(Context);
-    const { search } = useContext(Context);
-    const { isFiltered } = useContext(Context);
-    const { favorites, setFavorites } = useContext(Context);
-    const { listRender } = useContext(Context);
-    const { setModalPerson } = useContext(Context);
-    const { setModalIsOpen } = useContext(Context);
-
-    useEffect(() => {
-        api.get(`character/?page=${pagination}`)
-            .then(response => {
-                setListPerson(response.data.results);
-            })
-    }, [isFiltered === '' ? pagination : ''])
+    const { listPerson, setListPerson, setDataPagination, pagination, isFiltered, favorites, 
+        setFavorites, listRender, setModalPerson, setModalIsOpen } = useContext(Context);
 
     useEffect(() => {
         api.get(`character/?species=${isFiltered}&page=${pagination}`)
@@ -32,13 +17,6 @@ export function Content() {
                 setDataPagination(response.data.info);
             })
     }, [isFiltered, pagination])
-
-    useEffect(() => {
-        api.get(`character/?name=${search}`)
-            .then(response => {
-                setListPerson(response.data.results);
-            })
-    }, [search])
 
     function handleFavorites(favoritePerson) {
         const newFavorite = [...favorites, favoritePerson];
@@ -70,7 +48,7 @@ export function Content() {
                     {listRender ?
                         listPerson?.map(person => (
                             <div key={person.id}>
-                                {/* <img src={person.image} alt="" /> */}
+                                <img src={person.image} alt="" />
                                 <span>{person.name.length > 16 ? `${person.name.substring(0, 16)}...` : person.name}</span>
                                 <button onClick={() => handleModalInfo(person)}>+ Informações</button>
                                 <button onClick={() => handleFavorites(person)}>Favoritar</button>
@@ -79,10 +57,10 @@ export function Content() {
                         :
                         favorites?.map(person => (
                             <div key={person.id}>
-                                {/* <img src={person.image} alt="" /> */}
+                                <img src={person.image} alt="" />
                                 <span>{person.name.length > 16 ? `${person.name.substring(0, 16)}...` : person.name}</span>
                                 <button onClick={() => handleModalInfo(person)}>+ Informações</button>
-                                <button onClick={() => handleRemoveFavorites(person)}>remover favorito</button>
+                                <button onClick={() => handleRemoveFavorites(person)}>Remover favorito</button>
                             </div>
                         ))
                     }

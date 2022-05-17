@@ -8,8 +8,7 @@ import { Context } from "../Context/Context";
 
 export function Modal() {
 
-    const { modalPerson } = useContext(Context);
-    const { modalIsOpen, setModalIsOpen } = useContext(Context);
+    const { modalPerson, modalIsOpen, setModalIsOpen } = useContext(Context);
 
     function handleCloseModal() {
         setModalIsOpen(false);

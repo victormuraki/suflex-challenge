@@ -1,11 +1,19 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { Context } from "../Context/Context"
+import { api } from "../services/api";
 
 import { SearchContainer } from "./style";
 
 export function Search() {
 
-    const { setSearch } = useContext(Context);
+    const { search, setSearch, setListPerson } = useContext(Context);
+
+    useEffect(() => {
+        api.get(`character/?name=${search}`)
+            .then(response => {
+                setListPerson(response.data.results);
+            })
+    }, [search])
 
     return (
         <>

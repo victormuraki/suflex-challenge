@@ -1,13 +1,21 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Context } from "../Context/Context";
+import { api } from "../services/api";
 
 import { PaginationStyle } from "./style";
 
 export function Pagination() {
-
-    const { dataPagination } = useContext(Context);
-    const { pagination, setPagination } = useContext(Context);
     
+    const { dataPagination, pagination, setPagination, isFiltered, setListPerson } = useContext(Context);
+
+    useEffect(() => {
+        api.get(`character/?page=${pagination}`)
+            .then(response => {
+                setListPerson(response.data.results);
+            })
+    }, [isFiltered === '' ? pagination : ''])
+
+
     function handlePrevPage() {
         pagination === 1 ? setPagination(pagination) : setPagination(pagination - 1);
     }
