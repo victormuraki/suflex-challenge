@@ -28,8 +28,8 @@ export const FilteredBox = styled.button`
     background: var(--background);
 
     img {
-        height: 1.6rem;
-        max-width: 100%;
+        max-width: 1.6rem;
+        height: 100%;
     }
 
     span {

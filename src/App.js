@@ -3,6 +3,7 @@ import { HeaderApp } from './components/Header';
 import { Content } from './components/Content';
 import { Provider } from './components/Context/Provider';
 import { Modal } from './components/ModalInfo';
+import { Footer } from './components/Footer';
 
 export function App() {
 
@@ -11,6 +12,7 @@ export function App() {
       <Provider>
         <HeaderApp />
         <Content />
+        <Footer/>
         <Modal />
         <GlobalStyle />
       </Provider>
